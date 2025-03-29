@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
 
-export class MergedMigrations1741859999999 implements MigrationInterface {
+export class DocumentManagementMigration implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.query(`
       CREATE TYPE Action AS ENUM ('READ', 'WRITE', 'DELETE', 'UPDATE');
