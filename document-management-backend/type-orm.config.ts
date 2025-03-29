@@ -12,7 +12,7 @@ const config: DataSourceOptions & SeederOptions = {
   port: 5432,
   username: "postgres",
   password: "root",
-  database: "documentManagementDB",
+  database: "docManagementDB",
   entities: ["src/**/*.entity.ts"],
   migrations: ["src/**/migrations/*.ts"],
   seeds: ["src/**/seeds/*.ts"],

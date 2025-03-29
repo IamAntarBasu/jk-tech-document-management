@@ -57,7 +57,7 @@ export class MergedMigrations1741859999999 implements MigrationInterface {
 
       INSERT INTO users (email, role_id, first_name, last_name, password)
       SELECT 'superadmin@admin.com', 1, 'Admin', 'Admin', 
-        '$2a$10$iER0FCL2ZiHaIpnv59XrKu9OksAEu/gCNzq.4YrjPM2V3jPt3d6ue'
+        '$2a$10$yRrTPmvJdRhsx4RCWxlZs.N7QtwnBJNL/KddgnJ0C2.iMmhkWkAMi'
       WHERE NOT EXISTS (
         SELECT 1 FROM users WHERE email = 'superadmin@admin.com'
       );
