@@ -75,9 +75,13 @@ export class DocumentService {
    * @returns void
    */
   async updateDocument(id: number, document: Express.Multer.File) {
+    if (!document) {
+      throw new Error('No file was uploaded');
+    }
+
     const oldDocument = await this.getDocumentById(id);
     const documentToDelete = oldDocument.name;
-
+    
     oldDocument.originalName = document.originalname;
     oldDocument.name = document.filename;
     oldDocument.mimeType = document.mimetype;
@@ -88,6 +92,7 @@ export class DocumentService {
         join(this.configService.get("upload.path") as string, documentToDelete),
       );
     } catch (error) {
+      console.error('Error updating document:', error);
       await rm(document.path);
       throw error;
     }

@@ -88,7 +88,7 @@ export class DocumentController {
     await this.documentService.updateDocument(id, document);
 
     return {
-      message: "Document successfully updated",
+      message: "Document Updated Successfully",
     };
   }
 
