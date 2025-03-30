@@ -11,4 +11,4 @@ echo "Migration finished"
 
 # Start the server
 echo "Starting server"
-npm run migrations:up && npm run start
+npm run start
