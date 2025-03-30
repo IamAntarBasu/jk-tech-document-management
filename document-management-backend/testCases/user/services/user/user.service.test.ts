@@ -2,12 +2,13 @@ import { createMock } from "@golevelup/ts-jest";
 import { ConfigService } from "@nestjs/config";
 import { Test, TestingModule } from "@nestjs/testing";
 import { getRepositoryToken } from "@nestjs/typeorm";
+import { mockUserEntity } from "src/user/models/__examples__/user-entity.fixture";
+import { UserEntity } from "src/user/models/user.entity";
+import { PasswordService } from "src/user/services/password/password.service";
+import { TokenManagementService } from "src/user/services/tokenManagement/jwt.service";
+import { UserService } from "src/user/services/user/user.service";
 import { Repository } from "typeorm";
-import { mockUserEntity } from "../../models/__examples__/user-entity.fixture";
-import { UserEntity } from "../../models/user.entity";
-import { TokenManagementService } from "../tokenManagement/jwt.service";
-import { PasswordService } from "../password/password.service";
-import { UserService } from "./user.service";
+
 
 describe("UserService", () => {
   let service: UserService;

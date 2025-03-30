@@ -2,11 +2,11 @@ import { createMock, DeepMocked } from "@golevelup/ts-jest";
 import { StreamableFile } from "@nestjs/common";
 import { Test, TestingModule } from "@nestjs/testing";
 import { PermissionGuard } from "src/middlewares/auth-middleware/authorization.middleware";
-import { DocumentController } from "./doc-uploads.controller";
-import { DocumentService } from "./doc-uploads.service";
 import { JwtAuthGuard } from "src/middlewares/auth-middleware/authentication.middleware";
 import { Reflector } from "@nestjs/core";
 import { CHECK_PERMISSIONS_KEY } from "src/middlewares/constants/checkPermission.token";
+import { DocumentController } from "src/doc-management/doc-uploads.controller";
+import { DocumentService } from "src/doc-management/doc-uploads.service";
 
 describe("DocumentController", () => {
   let controller: DocumentController;

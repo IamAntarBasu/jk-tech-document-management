@@ -1,12 +1,12 @@
 import { Test } from '@nestjs/testing';
 import { createMock, DeepMocked } from '@golevelup/ts-jest';
-import { IngestionService } from './ingestion.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { IngestionEntity } from './models/ingestion.entity';
 import { Repository } from 'typeorm';
 import { EventEmitter2 } from '@nestjs/event-emitter';
+import { IngestionService } from '../src/ingestion.service';
+import { IngestionEntity } from '../src/models/ingestion.entity';
 
-describe('AppService', () => {
+describe('IngestionService', () => {
   let service: IngestionService;
   let repo: DeepMocked<Repository<IngestionEntity>>;
   let eventEmitter: DeepMocked<EventEmitter2>;

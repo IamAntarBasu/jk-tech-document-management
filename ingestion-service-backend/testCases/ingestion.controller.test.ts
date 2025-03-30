@@ -1,7 +1,7 @@
 import { createMock, DeepMocked } from '@golevelup/ts-jest';
 import { Test, TestingModule } from '@nestjs/testing';
-import { IngestionController } from './ingestion.controller';
-import { IngestionService } from './ingestion.service';
+import { IngestionController } from 'src/ingestion.controller';
+import { IngestionService } from 'src/ingestion.service';
 
 describe('IngestionController', () => {
   let controller: IngestionController;

@@ -7,8 +7,8 @@ import { DocumentEntity } from "src/doc-management/entities/doc-management.entit
 import { INGESTION_SERVICE } from "src/middlewares/constants/ingestion";
 import { UserEntity } from "src/user/models/user.entity";
 import { Repository } from "typeorm";
-import { IngestionService } from "./ingestion.service";
 import { mockUserEntity } from "src/user/models/__examples__/user-entity.fixture";
+import { IngestionService } from "src/ingestion-service/ingestion.service";
 
 // jest mock firstValueFrom function
 jest.mock("rxjs", () => ({

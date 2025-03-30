@@ -1,7 +1,7 @@
 import { Reflector } from "@nestjs/core";
 import { JwtService } from "@nestjs/jwt";
 import { Test } from "@nestjs/testing";
-import { JwtAuthGuard } from "./authentication.middleware";
+import { JwtAuthGuard } from "src/middlewares/auth-middleware/authentication.middleware";
 
 describe("JwtAuthGuard", () => {
   let guard: JwtAuthGuard;

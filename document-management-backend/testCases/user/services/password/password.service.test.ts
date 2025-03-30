@@ -1,6 +1,6 @@
 import { Test, TestingModule } from "@nestjs/testing";
-import { PasswordService } from "./password.service";
 import { hash, compare } from "bcryptjs";
+import { PasswordService } from "src/user/services/password/password.service";
 
 jest.mock("bcryptjs", () => ({
   hash: jest.fn(),

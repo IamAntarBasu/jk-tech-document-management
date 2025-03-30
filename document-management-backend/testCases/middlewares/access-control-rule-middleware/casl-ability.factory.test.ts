@@ -1,11 +1,11 @@
 import { Test } from "@nestjs/testing";
 import { getRepositoryToken } from "@nestjs/typeorm";
 import { UserEntity } from "src/user/models/user.entity";
-import { CaslAbilityFactory } from "./access-control.middlewares";
 import { createMock } from "@golevelup/ts-jest";
 import { Action } from "src/types/permissions";
 import { Repository } from "typeorm";
 import { ForbiddenException } from "@nestjs/common";
+import { CaslAbilityFactory } from "src/middlewares/access-control-rule-middleware/access-control.middlewares";
 
 describe("CaslAbilityFactory", () => {
   let caslAbilityFactory: CaslAbilityFactory;

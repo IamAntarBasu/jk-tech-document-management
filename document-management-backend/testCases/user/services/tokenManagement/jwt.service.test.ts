@@ -1,7 +1,7 @@
 import { Test, TestingModule } from "@nestjs/testing";
-import { TokenManagementService } from "./jwt.service";
 import { ConfigService } from "@nestjs/config";
 import { createMock } from "@golevelup/ts-jest";
+import { TokenManagementService } from "src/user/services/tokenManagement/jwt.service";
 
 jest.mock("jsonwebtoken", () => {
   return { sign: jest.fn().mockReturnValue("jwt") };

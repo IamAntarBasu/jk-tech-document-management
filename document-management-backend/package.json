@@ -96,7 +96,7 @@
       "node_modules",
       "<rootDir>"
     ],
-    "testRegex": ".*\\.spec\\.ts$",
+    "testRegex": "testCases/.*\\.test\\.ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
     },

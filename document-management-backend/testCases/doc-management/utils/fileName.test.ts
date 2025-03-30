@@ -1,4 +1,4 @@
-import { fileName } from "./fileName";
+import { fileName } from "src/doc-management/utils/fileName";
 
 describe("convertByte", () => {
   it("should convert bytes to KB, MB, GB", () => {

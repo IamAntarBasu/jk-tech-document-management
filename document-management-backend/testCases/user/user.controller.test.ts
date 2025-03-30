@@ -4,13 +4,14 @@ import { Reflector } from "@nestjs/core";
 import { Test, TestingModule } from "@nestjs/testing";
 import { getRepositoryToken } from "@nestjs/typeorm";
 import { CHECK_PERMISSIONS_KEY } from "src/middlewares/constants/checkPermission.token";
-import { mockUserEntity } from "./models/__examples__/user-entity.fixture";
-import { UserEntity } from "./models/user.entity";
-import { AuthService } from "./services/auth/auth.service";
-import { TokenManagementService } from "./services/tokenManagement/jwt.service";
-import { PasswordService } from "./services/password/password.service";
-import { UserService } from "./services/user/user.service";
-import { UserController } from "./user.controller";
+import { mockUserEntity } from "src/user/models/__examples__/user-entity.fixture";
+import { UserEntity } from "src/user/models/user.entity";
+import { AuthService } from "src/user/services/auth/auth.service";
+import { PasswordService } from "src/user/services/password/password.service";
+import { TokenManagementService } from "src/user/services/tokenManagement/jwt.service";
+import { UserService } from "src/user/services/user/user.service";
+import { UserController } from "src/user/user.controller";
+
 
 describe("UserController", () => {
   let controller: UserController;

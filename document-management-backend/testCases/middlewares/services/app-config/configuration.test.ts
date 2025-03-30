@@ -1,4 +1,4 @@
-import { getConfig, AppEnv, parseIntSafe } from "./configuration";
+import { getConfig, AppEnv, parseIntSafe } from "src/middlewares/services/app-config/configuration";
 
 describe("getConfig", () => {
   beforeEach(() => {

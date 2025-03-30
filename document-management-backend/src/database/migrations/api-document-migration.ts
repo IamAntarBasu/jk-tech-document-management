@@ -1,9 +1,14 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
 
-export class DocumentManagementMigration implements MigrationInterface {
+export class DocumentManagementMigration1743335505603 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.query(`
-      CREATE TYPE Action AS ENUM ('READ', 'WRITE', 'DELETE', 'UPDATE');
+        DO $$ 
+        BEGIN
+          IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'action') THEN
+            CREATE TYPE "Action" AS ENUM ('READ', 'WRITE', 'DELETE', 'UPDATE');
+          END IF;
+        END $$;
 
       CREATE TABLE IF NOT EXISTS roles (
         id INT PRIMARY KEY,

@@ -3,8 +3,8 @@ import { ExecutionContext, UnauthorizedException } from "@nestjs/common";
 import { Reflector } from "@nestjs/core";
 import { Test } from "@nestjs/testing";
 import { ClsService } from "nestjs-cls";
-import { CaslAbilityFactory } from "../access-control-rule-middleware/access-control.middlewares";
-import { PermissionGuard } from "./authorization.middleware";
+import { CaslAbilityFactory } from "src/middlewares/access-control-rule-middleware/access-control.middlewares";
+import { PermissionGuard } from "src/middlewares/auth-middleware/authorization.middleware";
 import { mockUserEntity } from "src/user/models/__examples__/user-entity.fixture";
 
 describe("PermissionGuard", () => {
