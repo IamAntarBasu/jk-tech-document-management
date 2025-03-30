@@ -5,14 +5,14 @@ import { getRepositoryToken } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 import { mockUserEntity } from "../../models/__examples__/user-entity.fixture";
 import { UserEntity } from "../../models/user.entity";
-import { JwtService } from "../tokenManagement/jwt.service";
+import { TokenManagementService } from "../tokenManagement/jwt.service";
 import { PasswordService } from "../password/password.service";
 import { UserService } from "./user.service";
 
 describe("UserService", () => {
   let service: UserService;
   let repo: Repository<UserEntity>;
-  let jwtService: JwtService;
+  let jwtService: TokenManagementService;
   let passwordService: PasswordService;
 
   beforeEach(async () => {
@@ -21,7 +21,7 @@ describe("UserService", () => {
         UserService,
         ConfigService,
         PasswordService,
-        JwtService,
+        TokenManagementService,
         {
           provide: getRepositoryToken(UserEntity),
           useValue: createMock(),
@@ -31,7 +31,7 @@ describe("UserService", () => {
       .useMocker(createMock)
       .compile();
 
-    jwtService = module.get(JwtService);
+    jwtService = module.get(TokenManagementService);
     service = module.get<UserService>(UserService);
     passwordService = module.get<PasswordService>(PasswordService);
     repo = module.get<Repository<UserEntity>>(getRepositoryToken(UserEntity));
@@ -54,7 +54,7 @@ describe("UserService", () => {
 
   it("should be able to create user", async () => {
     const passwordSpy = jest
-      .spyOn(passwordService, "generate")
+      .spyOn(passwordService, "generatePassword")
       .mockResolvedValue("password-hash");
     const createSpy = jest
       .spyOn(repo, "create")
@@ -85,7 +85,7 @@ describe("UserService", () => {
 
   it("should check user password", async () => {
     const compareSpy = jest
-      .spyOn(passwordService, "compare")
+      .spyOn(passwordService, "comparePassword")
       .mockResolvedValue(true);
 
     expect(

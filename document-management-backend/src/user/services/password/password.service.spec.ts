@@ -25,12 +25,12 @@ describe("PasswordService", () => {
   it("should generate passwords", async () => {
     const hashMock = jest.mocked(hash);
     hashMock.mockResolvedValue("mock-password" as never);
-    expect(await service.generate("password")).toBe("mock-password");
+    expect(await service.generatePassword("password")).toBe("mock-password");
   });
 
   it("should compare password hash", async () => {
     const compareMock = jest.mocked(compare);
     compareMock.mockResolvedValue(true as never);
-    expect(await service.compare("password", "hash")).toBe(true);
+    expect(await service.comparePassword("password", "hash")).toBe(true);
   });
 });

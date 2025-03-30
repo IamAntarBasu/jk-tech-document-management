@@ -8,10 +8,10 @@ export function parseIntSafe(num: string | undefined, fallback: number) {
 
 export const getConfig = (): AppConfig => {
   return {
-    port: parseIntSafe(process.env.PORT, 3000),
+    port: parseIntSafe(process.env.PORT, 9000),
     appEnv: process.env.ENV as AppEnv,
     jwt: {
-      expiry: process.env.JWT_EXPIRY ?? "2h",
+      expiry: process.env.JWT_EXPIRY ?? "24h",
       secret: process.env.JWT_SECRET as string,
     },
     database: {
@@ -28,7 +28,7 @@ export const getConfig = (): AppConfig => {
     },
     upload: {
       path: process.env.UPLOAD_PATH as string,
-      maxFileSize: parseIntSafe(process.env.UPLOAD_MAX_FILE_SIZE, 1024 * 1024),
+      maxFileSize: parseIntSafe(process.env.UPLOAD_MAX_FILE_SIZE, 1048576 * 5),
     },
   };
 };

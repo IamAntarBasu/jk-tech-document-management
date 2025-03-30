@@ -21,7 +21,7 @@ describe("getConfig", () => {
   it("should return the correct configuration when all environment variables are set", () => {
     const config = getConfig();
     expect(config).toEqual({
-      port: 4000,
+      port: 9000,
       appEnv: AppEnv.DEV,
       jwt: {
         expiry: "24h",

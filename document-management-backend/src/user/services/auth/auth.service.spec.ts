@@ -4,7 +4,7 @@ import { Test, TestingModule } from "@nestjs/testing";
 import { getRepositoryToken } from "@nestjs/typeorm";
 import { mockUserEntity } from "../../models/__examples__/user-entity.fixture";
 import { UserEntity } from "../../models/user.entity";
-import { JwtService } from "../tokenManagement/jwt.service";
+import { TokenManagementService } from "../tokenManagement/jwt.service";
 import { PasswordService } from "../password/password.service";
 import { UserService } from "../user/user.service";
 import { AuthService } from "./auth.service";
@@ -20,7 +20,7 @@ describe("AuthService", () => {
         UserService,
         PasswordService,
         ConfigService,
-        JwtService,
+        TokenManagementService,
         {
           provide: getRepositoryToken(UserEntity),
           useValue: {},
@@ -56,7 +56,7 @@ describe("AuthService", () => {
           firstName: "fName",
         });
       } catch (e) {
-        expect(e.message).toBe("User already exists");
+        expect(e.message).toBe("A user with this email is already registered.");
       }
       expect(existSpy).toHaveBeenCalledWith("email");
       expect(createSpy).toHaveBeenCalledTimes(0);
@@ -104,7 +104,7 @@ describe("AuthService", () => {
           password: "password",
         });
       } catch (e) {
-        expect(e.message).toBe("Login failed");
+        expect(e.message).toBe("No account found with this email.");
       }
       expect(existSpy).toHaveBeenCalledWith("email");
     });
@@ -125,7 +125,7 @@ describe("AuthService", () => {
           password: "password",
         });
       } catch (e) {
-        expect(e.message).toBe("Incorrect password");
+        expect(e.message).toBe("The password you entered is incorrect.");
       }
       expect(existSpy).toHaveBeenCalledWith("email");
       expect(checkPassSpy).toHaveBeenCalledWith(mockUserEntity, "password");

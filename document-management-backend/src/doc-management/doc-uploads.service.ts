@@ -7,7 +7,7 @@ import { rm, stat } from "fs/promises";
 import { join } from "path";
 import { Repository } from "typeorm";
 import { DocumentEntity } from "./entities/doc-management.entity";
-import { convertBytes } from "./utils/fileName";
+import { fileName } from "./utils/fileName";
 
 @Injectable()
 export class DocumentService {
@@ -116,7 +116,7 @@ export class DocumentService {
     const size = stats.size;
 
     // convert it to human readable format
-    return convertBytes(size);
+    return fileName(size);
   }
 
   async listDocuments() {

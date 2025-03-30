@@ -68,7 +68,7 @@ describe("DocumentController", () => {
 
     expect(service.create).toHaveBeenCalledWith(document);
     expect(result).toEqual({
-      message: "Document created",
+      message: "Document successfully uploaded",
       document: {
         id: 1,
       },
@@ -128,7 +128,7 @@ describe("DocumentController", () => {
 
     expect(service.updateDocument).toHaveBeenCalledWith(1, document);
     expect(result).toEqual({
-      message: "Document updated",
+      message: "Document Updated Successfully",
     });
   });
 
@@ -152,7 +152,7 @@ describe("DocumentController", () => {
 
     expect(service.deleteDocument).toHaveBeenCalledWith(1);
     expect(result).toEqual({
-      message: "Document deleted",
+      message: "Document successfully removed",
     });
   });
 

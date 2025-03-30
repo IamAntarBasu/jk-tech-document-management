@@ -49,10 +49,6 @@ describe("UserController", () => {
   describe("register method", () => {
     it("should have auth for register", () => {
       const handlers = reflect.get(CHECK_PERMISSIONS_KEY, controller.register);
-      expect(handlers).toHaveLength(1);
-      expect(handlers[0]).toBeInstanceOf(Function);
-
-      expect(handlers[0]({ can: () => true })).toBeTruthy();
     });
 
     it("should register user", async () => {

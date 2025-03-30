@@ -45,7 +45,7 @@ describe("JWT Strategy", () => {
     jest.spyOn(strategy["user"], "isUserExists").mockResolvedValueOnce(null);
 
     await expect(strategy.validate(payload)).rejects.toThrowError(
-      "Invalid user provided.",
+      "Invalid User Details.",
     );
   });
 });

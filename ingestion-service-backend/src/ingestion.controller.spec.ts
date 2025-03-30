@@ -1,25 +1,25 @@
 import { createMock, DeepMocked } from '@golevelup/ts-jest';
 import { Test, TestingModule } from '@nestjs/testing';
-import { AppController } from './ingestion.controller';
-import { AppService } from './ingestion.service';
+import { IngestionController } from './ingestion.controller';
+import { IngestionService } from './ingestion.service';
 
 describe('IngestionController', () => {
-  let controller: AppController;
-  let service: DeepMocked<AppService>;
+  let controller: IngestionController;
+  let service: DeepMocked<IngestionService>;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [AppController],
+      controllers: [IngestionController],
       providers: [
         {
-          provide: AppService,
-          useValue: createMock<AppService>(),
+          provide: IngestionService,
+          useValue: createMock<IngestionService>(),
         },
       ],
     }).compile();
 
-    controller = module.get(AppController);
-    service = module.get(AppService);
+    controller = module.get(IngestionController);
+    service = module.get(IngestionService);
   });
 
   it('should be defined', () => {
@@ -33,7 +33,7 @@ describe('IngestionController', () => {
     jest.spyOn(service, 'addIngestion').mockResolvedValue(ingestion as any);
 
     expect(await controller.addIngestion(data)).toStrictEqual({
-      message: 'Successfully added',
+      message: 'Ingestion process initiated successfully',
       ingestion,
     });
   });
@@ -45,7 +45,7 @@ describe('IngestionController', () => {
     jest.spyOn(service, 'getIngestion').mockResolvedValue(ingestion as any);
 
     expect(await controller.getIngestion(id)).toStrictEqual({
-      message: 'Successfully fetched',
+      message: 'Ingestion details retrieved successfully',
       ingestion,
     });
   });
