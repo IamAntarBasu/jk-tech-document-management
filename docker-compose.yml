@@ -5,7 +5,7 @@ services:
       context: ./document-management-backend
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "8000:8000"
     env_file:
       - .env
     # map a volume for the file uploads

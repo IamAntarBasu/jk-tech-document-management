@@ -10,4 +10,4 @@ COPY . .
 
 EXPOSE 3000
 
-CMD [ "sh", "run.sh" ]
+CMD [ "sh", "start.sh" ]
