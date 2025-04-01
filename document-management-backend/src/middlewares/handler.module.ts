@@ -7,4 +7,4 @@ import { CaslModule } from "./access-control-rule-middleware/access-control.modu
   providers: [],
   exports: [CaslModule],
 })
-export class GlobalModule {}
+export class MiddlewareModule {}

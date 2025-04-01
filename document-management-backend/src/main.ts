@@ -17,8 +17,8 @@ async function bootstrap() {
   // Apply global validation pipe to validate and transform request data
   app.useGlobalPipes(
     new ValidationPipe({
-      whitelist: true, // Strips out properties that are not in the DTO
-      transform: true, // Automatically transforms request payloads to match DTOs
+      whitelist: true, // Strips out properties that are not in the Types
+      transform: true, // Automatically transforms request payloads to match Types
     }),
   );
 
