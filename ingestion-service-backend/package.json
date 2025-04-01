@@ -1,8 +1,7 @@
 {
-  "name": "ingestion",
-  "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "name": "ingestion-service",
+  "version": "1.0.0",
+  "author": "Antar Basu",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
