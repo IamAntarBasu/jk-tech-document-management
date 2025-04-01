@@ -32,6 +32,8 @@ export class UserController {
     status: 500,
     description: "Internal Server Error",
   })
+  @UseGuards(JwtAuthGuard, PermissionGuard)
+  @CheckPermissions((ability) => ability.can(Action.WRITE, "User"))
   @Post("register")
   async register(@Body() user: CreateUserValidation) {
     const newUser = await this.authService.register(user);
