@@ -92,7 +92,6 @@ export class DocumentService {
         join(this.configService.get("upload.path") as string, documentToDelete),
       );
     } catch (error) {
-      console.error('Error updating document:', error);
       await rm(document.path);
       throw error;
     }
